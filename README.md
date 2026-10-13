@@ -120,6 +120,7 @@ furhat-healthcare-hri/
 │   ├── Friendly voice only prototype.xml
 │   └── Final (emotions and language) prototype.xml
 └── figures/
+```
 
 ## Academic Context
 
