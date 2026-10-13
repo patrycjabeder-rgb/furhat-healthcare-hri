@@ -1,0 +1,2160 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="IntentCandidate" id="::B_],Pgtjji?`WTS2O3">headache</variable>
+    <variable type="IntentCandidate" id="x.#w+Twg{1iM/:zFZhJ~">abdominal pain</variable>
+    <variable type="IntentCandidate" id="hWY6=xAde[aTsB@4ec7~">vomiting</variable>
+    <variable type="IntentCandidate" id=":Z5Eovxi2(mdprYA|NED">fever</variable>
+    <variable type="IntentCandidate" id="fU14As7N|9MbBOWBkUb9">dizziness</variable>
+    <variable type="IntentCandidate" id="$oYz;Ssg$HsbnqK8!:nd">broken bones</variable>
+    <variable type="IntentCandidate" id="ECvmVitV+2lb,4BX]LKB">cuts</variable>
+    <variable type="IntentCandidate" id="emg1.wj8CAz^P#!%#Pou">sprain</variable>
+    <variable type="IntentCandidate" id="6,sCmQFYKJKFiRx)37Jn">back pain</variable>
+    <variable type="IntentCandidate" id="q58ADP}VN.P-[;$MzX,?">head injury</variable>
+    <variable type="IntentCandidate" id="Z(X(U6fgFiTmOvKklADG">asthma flare</variable>
+    <variable type="IntentCandidate" id=".[ez.O*Tiq2+ZNc)-G#(">pain peeing</variable>
+    <variable type="IntentCandidate" id=":Xb6In/Rle;_W,;2cYBP">burns</variable>
+    <variable type="IntentCandidate" id=",{Ug|itt7s8A_J]$9~M:">ear pain</variable>
+    <variable type="IntentCandidate" id="PWq:h~M+{n_#}MvqzE~P">none</variable>
+    <variable type="GenericValue" id="A1NI6~q^gBYSv6hyvLgl">urgency_code</variable>
+    <variable type="GenericValue" id="?^#EE91wPs?Za=f7^Mn/">patient_gender</variable>
+    <variable type="GenericValue" id="wA9!sSpMOAk|b/6![`ZS">diseases</variable>
+    <variable type="GenericValue" id="n:?Ei[CG7izh4vsL-71h">medications</variable>
+    <variable type="GenericValue" id="(e!wTFenVlps}GBZcwMH">allergies</variable>
+    <variable type="GenericValue" id="ACG`r1Az4[{oFCCS!KO4">surgery</variable>
+    <variable type="GenericValue" id="m9ks!uQbFz4oh@U)NN*`">pregnancy/contraceptives</variable>
+    <variable type="GenericValue" id="]rM/y^-A%5!RYdZ#wGyk">patient_birth</variable>
+    <variable type="GenericValue" id="-0SK)mxBqZ7]j|brztU/">patient_name</variable>
+  </variables>
+  <block type="state" id="i@bTksALJ]4aw/n#:J@." x="255" y="-471">
+    <field name="stateName">name</field>
+    <statement name="actions">
+      <block type="ask_text" id="]uqJ9^rnY4XqxQTgQf1D">
+        <value name="text">
+          <shadow type="text" id="jQ2)N%V^[(ia[ryf^U2F">
+            <field name="value">I am glad to hear that. What is your name?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="A,7u+ljx2%*PeA1Vw%^d">
+        <value name="intent">
+          <block type="intent_entity" id="YSQmK1N?7;jo!yJOG)Em">
+            <statement name="entityBlocks">
+              <block type="entity_name" id="4d|@NXY^A@aH(vmu/b6F">
+                <field name="variable" id="-0SK)mxBqZ7]j|brztU/" variabletype="GenericValue">patient_name</field>
+              </block>
+            </statement>
+          </block>
+        </value>
+        <statement name="actions">
+          <block type="goto" id="grJ[/bw$u6fox@E_qmPp">
+            <field name="stateName">birthday</field>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="X-~/3DYz.1d_eEJkU{R/" deletable="false" editable="false" x="-300" y="-383">
+    <field name="stateName">start</field>
+    <statement name="actions">
+      <block type="action_voice" id="L@XJGs;KhJap~JGFP-OO">
+        <field name="voice">AdaMultilingualNeural (en-GB) - Microsoft Azure</field>
+        <next>
+          <block type="say_text" id="E)kFZ8/*NmujG?:BbI0m">
+            <value name="text">
+              <shadow type="text" id="P6uknTnfNA`a*zQ;4?]O">
+                <field name="value">Hello, I am a virtual robot trying to assist with your check in.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="ask_text" id="{xv*xxCf0O~Im*yUn:!.">
+                <value name="text">
+                  <shadow type="text" id="*.oo?J(Um^6.yvAS6AV:">
+                    <field name="value">Before continuing, are you having trouble breathing, chest pain, heavy bleeding, or a severe allergic reaction?</field>
+                  </shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="h?-A2E}mw*}y)GxFas$:">
+        <value name="intent">
+          <block type="intent_yes" id="`G;(5APDc%o;3{q#LBi}"></block>
+        </value>
+        <statement name="actions">
+          <block type="variable_set" id="9fJQiLg_P,-?y)(Jrc+D">
+            <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+            <value name="value">
+              <block type="text" id="fjW%z?n|}K.=b!;oHx+6">
+                <field name="value">RED</field>
+              </block>
+            </value>
+            <next>
+              <block type="say_text" id="]b+#=gdwmVQX8E{87`MK">
+                <value name="text">
+                  <shadow type="text" id="hy|^*mAT!L-yi0_+s$#8">
+                    <field name="value">I am sorry to ear that. I have alerted the staff about your condition. </field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="terminate" id="`;wkI5]d9g}+e[gsJpgg"></block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="jX8*xkV}}nnG/Aewli4t">
+            <value name="intent">
+              <block type="intent_no" id="W~%68De4SGpFOo{M#Bib"></block>
+            </value>
+            <statement name="actions">
+              <block type="goto" id="0w6aai|.nU,fnK_AMZ0.">
+                <field name="stateName">name</field>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="define_intent" id="f5TB1R)76}E%]dcq$Fa)" x="1101" y="-452">
+    <field name="intent_name" id="::B_],Pgtjji?`WTS2O3" variabletype="IntentCandidate">headache</field>
+    <value name="intent">
+      <block type="intent_simple" id="tT2R$iU`y_H_rPr(z]rq">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="8_rBSmAAWV^r*cbl|.2G">
+            <field name="text">I have a headache</field>
+            <next>
+              <block type="intent_example" id="nLWWlm{$[)%p?ie-LI.,">
+                <field name="text">My head hurts</field>
+                <next>
+                  <block type="intent_example" id="u9u!d;{f=fmLBSKT-sEx">
+                    <field name="text">headache</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="j5vH0Lx|_+}48hd*w_+0" x="1495" y="-453">
+    <field name="intent_name" id="x.#w+Twg{1iM/:zFZhJ~" variabletype="IntentCandidate">abdominal pain</field>
+    <value name="intent">
+      <block type="intent_simple" id="6Vox`~m48c#G{CC:Db:$">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="qeZvig5w7/i(L[v7#C4r">
+            <field name="text">I have abdominal pain</field>
+            <next>
+              <block type="intent_example" id="ST?A6k.}ZK,`zJ.yqusr">
+                <field name="text">My stomach hurts</field>
+                <next>
+                  <block type="intent_example" id="Gvjiqt/rh9fIvKAN[IzH">
+                    <field name="text">My belly hurts</field>
+                    <next>
+                      <block type="intent_example" id="AJmbvGy._GS1v}]6f^rd">
+                        <field name="text">abdominal pain</field>
+                        <next>
+                          <block type="intent_example" id="mxoKdos2ej7dANi0F8L4">
+                            <field name="text">stomach pain</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="Mw4K=K[I?zBh7!]T1h?i" x="1857" y="-457">
+    <field name="intent_name" id="hWY6=xAde[aTsB@4ec7~" variabletype="IntentCandidate">vomiting</field>
+    <value name="intent">
+      <block type="intent_simple" id="v]7PwfaY5MO?+Yx[~krx">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="3QgS$QqP~_[ve$pQf#7a">
+            <field name="text">I vomit</field>
+            <next>
+              <block type="intent_example" id="4{IpS|/G#wQjfGrhedj:">
+                <field name="text">I am vomiting</field>
+                <next>
+                  <block type="intent_example" id=".[I19*gBH3-hc)U%H+,T">
+                    <field name="text">vomiting</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="~m,(C-I!5q+8UBGgwdsw" x="2400" y="-474">
+    <field name="intent_name" id=":Z5Eovxi2(mdprYA|NED" variabletype="IntentCandidate">fever</field>
+    <value name="intent">
+      <block type="intent_simple" id="]jXA89(#{aI(?)8Q^|`/">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="kE-cj58+aj^AFmJA}_TB">
+            <field name="text">I have a fever</field>
+            <next>
+              <block type="intent_example" id="cB7RkC(%jPOaQ3dFdG{^">
+                <field name="text">I have a high temperature</field>
+                <next>
+                  <block type="intent_example" id="2S.woK]^EoiJ87ZD,lbE">
+                    <field name="text">fever</field>
+                    <next>
+                      <block type="intent_example" id="!;OJ(vqc-*]T*CD(U#%^">
+                        <field name="text">I feel hot</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="CWHfZ/8UP8-fH4dBDY!a" x="2141" y="-454">
+    <field name="intent_name" id="fU14As7N|9MbBOWBkUb9" variabletype="IntentCandidate">dizziness</field>
+    <value name="intent">
+      <block type="intent_simple" id="PVgy=r570Up+5CRfcjY{">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="7{etw)C|!kxE9ZrB2`ys">
+            <field name="text">I am dizzy</field>
+            <next>
+              <block type="intent_example" id="Nj@fX~)T!;XN]]/WviE{">
+                <field name="text">I feel dizzy</field>
+                <next>
+                  <block type="intent_example" id="G:Z=,tW@Y0m`7^ItZ-1(">
+                    <field name="text">Dizziness</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="state" id="xy;m(bFU~:%g,qg]AK:n" x="262" y="-251">
+    <field name="stateName">birthday</field>
+    <statement name="actions">
+      <block type="ask_text" id="pUzeV:txc@1i/LBUnsME">
+        <value name="text">
+          <shadow type="text" id="S{$I)A@Qt.wkIX|Tg=p:">
+            <field name="value">Thank you! What is your date of birth?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="_`gFA7^q5f+hPde]/IyJ">
+        <value name="intent">
+          <block type="intent_entity" id="B=qN^a3dLoW/$`$9s_=x">
+            <statement name="entityBlocks">
+              <block type="entity_date" id="YzY!z*44$o1djMazHeo`">
+                <field name="variable" id="]rM/y^-A%5!RYdZ#wGyk" variabletype="GenericValue">patient_birth</field>
+              </block>
+            </statement>
+          </block>
+        </value>
+        <statement name="actions">
+          <block type="goto" id="(b2FA~~42iBV%8bMJbkY">
+            <field name="stateName">gender</field>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="wjthVg(mfcoM,DKsnzj-" x="658" y="-268">
+    <field name="stateName">verification</field>
+    <statement name="actions">
+      <block type="say_text" id="]2!}XZiP-H^1$T7aIp[C">
+        <value name="text">
+          <shadow type="text" id="7w!LE$:qE5pG8pe(`ZI8">
+            <field name="value">Check if this information is correct, Chronic diseases</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="say_text" id="4(g0rhqyI}!qhVJ!`#)X">
+            <value name="text">
+              <shadow type="text" id="!*AjUgoNx4QW4qT:$n@C">
+                <field name="value">hello</field>
+              </shadow>
+              <block type="variable_get" id="o6#3#GU_/btfIM0-[WUX">
+                <field name="varname" id="wA9!sSpMOAk|b/6![`ZS" variabletype="GenericValue">diseases</field>
+              </block>
+            </value>
+            <next>
+              <block type="say_text" id="endu?(lSHkD|,uTW*;W@">
+                <value name="text">
+                  <shadow type="text" id="Yy]!|kPM/XR@Ztp}TOYP">
+                    <field name="value">Medications</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="say_text" id="/4-qh!*Bn.6yK!r-D2F]">
+                    <value name="text">
+                      <shadow type="text" id="!*AjUgoNx4QW4qT:$n@C">
+                        <field name="value">hello</field>
+                      </shadow>
+                      <block type="variable_get" id="(Wu3Pc`];8ZG!.suY6*t">
+                        <field name="varname" id="n:?Ei[CG7izh4vsL-71h" variabletype="GenericValue">medications</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="say_text" id="}Mc*7TYGB^9w}AqB//U6">
+                        <value name="text">
+                          <shadow type="text" id="4ADt[-Yck|1^ey;d*efY">
+                            <field name="value">Allergies</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="say_text" id="+uCmuFU?X_%j!l0EFT^@">
+                            <value name="text">
+                              <shadow type="text" id="!*AjUgoNx4QW4qT:$n@C">
+                                <field name="value">hello</field>
+                              </shadow>
+                              <block type="variable_get" id="5G=tl:trYu`,N.3)0X}6">
+                                <field name="varname" id="(e!wTFenVlps}GBZcwMH" variabletype="GenericValue">allergies</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="say_text" id="#,-|$sU}|#.m#S;pAEui">
+                                <value name="text">
+                                  <shadow type="text" id="={{kOKS!8+E~S/ohXr,2">
+                                    <field name="value">Past surgeries</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="say_text" id="/=8FNL$sk8}MH(3IQ%;@">
+                                    <value name="text">
+                                      <shadow type="text" id="!*AjUgoNx4QW4qT:$n@C">
+                                        <field name="value">hello</field>
+                                      </shadow>
+                                      <block type="variable_get" id="ut_-H-,Atuu!:kL(,/l%">
+                                        <field name="varname" id="ACG`r1Az4[{oFCCS!KO4" variabletype="GenericValue">surgery</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="say_text" id="ZZIX:3OHn0BgAdx62[vP">
+                                        <value name="text">
+                                          <shadow type="text" id="650,A*i1G;3kI-dj?(@L">
+                                            <field name="value">Pregnency or oral contraceptives</field>
+                                          </shadow>
+                                        </value>
+                                        <next>
+                                          <block type="say_text" id="%FSo-bqcQ)rtw816567B">
+                                            <value name="text">
+                                              <shadow type="text" id="!*AjUgoNx4QW4qT:$n@C">
+                                                <field name="value">hello</field>
+                                              </shadow>
+                                              <block type="variable_get" id="#-T|3;SNV!FqFuSz;5Z?">
+                                                <field name="varname" id="m9ks!uQbFz4oh@U)NN*`" variabletype="GenericValue">pregnancy/contraceptives</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="ask_text" id="1|,D)]=N@BJ{AL1:IbgJ">
+                                                <value name="text">
+                                                  <shadow type="text" id="`RRRB7^%*DzH^u=.yN2p">
+                                                    <field name="value">Say correct to confirm, say incorrect to edit the patient history </field>
+                                                  </shadow>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_example" id="c!-N~PVB(W#J9=Vk,1@5">
+        <field name="responseText">correct</field>
+        <statement name="actions">
+          <block type="say_text" id="eX|8(dA=%g|SE?3p6VeD">
+            <value name="text">
+              <shadow type="text" id="+cPLC$?8L.8q#-aWAx1X">
+                <field name="value">Patient history confirmed</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="goto" id="2?7t^~hCT0GC{f:^hjj{">
+                <field name="stateName">symptoms</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_example" id="(@Ne~o0L-X.y.}#m8/!2">
+            <field name="responseText">incorrect</field>
+            <statement name="actions">
+              <block type="say_text" id="mB/_nlz,-1ZvhST=Aha4">
+                <value name="text">
+                  <shadow type="text" id="%YWOpkFc[OcrET#_Styu">
+                    <field name="value">I will repeat the questions</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="goto" id="|Uqf6)$1=y4*77q~^fXU">
+                    <field name="stateName">patient history</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="define_intent" id="#?oe6q4)47Iy?G2dMh6r" x="1104" y="-254">
+    <field name="intent_name" id="$oYz;Ssg$HsbnqK8!:nd" variabletype="IntentCandidate">broken bones</field>
+    <value name="intent">
+      <block type="intent_simple" id="]TEt*6k^c`v8-7OM.o8j">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="iJotJB|`iH(R=Daw~BD9">
+            <field name="text">Bones</field>
+            <next>
+              <block type="intent_example" id="{PFVP3KFHp|x8ka8!?JN">
+                <field name="text">broken </field>
+                <next>
+                  <block type="intent_example" id="N|8-Chvx*mH:@Cl-wV3U">
+                    <field name="text">I broke a bone</field>
+                    <next>
+                      <block type="intent_example" id="G}CUrU#z)g+_)U#IhhMt">
+                        <field name="text">I broke my</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="L^$-O%YSJ)J$](6;rzVq" x="1494" y="-220">
+    <field name="intent_name" id="ECvmVitV+2lb,4BX]LKB" variabletype="IntentCandidate">cuts</field>
+    <value name="intent">
+      <block type="intent_simple" id="P/}MAKPXuUy#xkO*5PGL">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="?fl)p@b0RXJi`P$(uurK">
+            <field name="text">I cut my</field>
+            <next>
+              <block type="intent_example" id="CbfTxKn*=ha0R5g6fi:`">
+                <field name="text">My cut is</field>
+                <next>
+                  <block type="intent_example" id="ks6zbY:B}/^pI4T0xq%!">
+                    <field name="text">I am bleeding</field>
+                    <next>
+                      <block type="intent_example" id=",:B0yUU5pclg~pr~*zEE">
+                        <field name="text">bleeding</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="Rf%l7ED%,8J5uW#bDnH=" x="1784" y="-229">
+    <field name="intent_name" id="emg1.wj8CAz^P#!%#Pou" variabletype="IntentCandidate">sprain</field>
+    <value name="intent">
+      <block type="intent_simple" id="F2#!av8nD[f=B@SHSlZ:">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="w4?k4q2WL_N,G,wpIZRQ">
+            <field name="text">Sprain</field>
+            <next>
+              <block type="intent_example" id="nf=2;P.BYNLWFnAdpSB0">
+                <field name="text">sprained</field>
+                <next>
+                  <block type="intent_example" id="WoYxLAHY=b_+@xptx}PL">
+                    <field name="text">I sprained a</field>
+                    <next>
+                      <block type="intent_example" id="J)8o^C.ASGVoh~MskqtB">
+                        <field name="text">I sprained my</field>
+                        <next>
+                          <block type="intent_example" id="?wXM(Cnh0h@o@SQ%[a=#">
+                            <field name="text">joint</field>
+                            <next>
+                              <block type="intent_example" id="C~[~`^6$9k$jVVb|yi,Y">
+                                <field name="text">joints</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="p_Fl;vSx{P#U(5Due]BY" x="2156" y="-243">
+    <field name="intent_name" id="6,sCmQFYKJKFiRx)37Jn" variabletype="IntentCandidate">back pain</field>
+    <value name="intent">
+      <block type="intent_simple" id="YTbu?zs^n.D:4:MI)rfq">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="0i{*?t{@ujbOz]{9(Mz(">
+            <field name="text">back</field>
+            <next>
+              <block type="intent_example" id="Xw}OKI_2JEdT#ysTi{-^">
+                <field name="text">spine</field>
+                <next>
+                  <block type="intent_example" id=",cRLPe,Bje@yTr1OU:V,">
+                    <field name="text">I have back pain</field>
+                    <next>
+                      <block type="intent_example" id="D:uB?zF:mey[:tRWP].N">
+                        <field name="text">my back is hurting</field>
+                        <next>
+                          <block type="intent_example" id="CuMZA?3J$)5:U@`P+y.h">
+                            <field name="text">injured my back</field>
+                            <next>
+                              <block type="intent_example" id="mj}lX#4Nqf;gHEK=:3[r">
+                                <field name="text">injured my spine</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id=",cc!MMJIsO;x[sJ68J0J" x="2461" y="-243">
+    <field name="intent_name" id="q58ADP}VN.P-[;$MzX,?" variabletype="IntentCandidate">head injury</field>
+    <value name="intent">
+      <block type="intent_simple" id="@+,2x2oY=L#T}/:2D^^j">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="naH@tc{o5hvxN.OaiNYr">
+            <field name="text">head</field>
+            <next>
+              <block type="intent_example" id="=s+]2SOrqYz;3mmWv`?Y">
+                <field name="text">bumped my head</field>
+                <next>
+                  <block type="intent_example" id="~K37yO63E1]_^P-D0evn">
+                    <field name="text">hurt my head</field>
+                    <next>
+                      <block type="intent_example" id="$lwwyb)0Y1^RTbl!A=^V">
+                        <field name="text">my head is in pain</field>
+                        <next>
+                          <block type="intent_example" id="b;QU*7~GzI_ZBe-Mc8Rm">
+                            <field name="text">injured my head</field>
+                            <next>
+                              <block type="intent_example" id="7w[Z0tLPya-D0zUq{H?G">
+                                <field name="text">my head hurts</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="state" id="s+O1cAV;k[=(V?ct|W39" x="200" y="-27">
+    <field name="stateName">gender</field>
+    <statement name="actions">
+      <block type="ask_text" id="Ytf#o!j%()}IqlBaiEE_">
+        <value name="text">
+          <shadow type="text" id="3`2P@uU|),;v7K(!=}DJ">
+            <field name="value">Thank you! What is your gender assigned at birth? Male or female?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_example" id="yv^/K-O~RJVSM:G0DG3j">
+        <field name="responseText">Male</field>
+        <statement name="actions">
+          <block type="variable_set" id="]X]fo5!I14(^k~vHP.UI">
+            <field name="variable" id="?^#EE91wPs?Za=f7^Mn/" variabletype="GenericValue">patient_gender</field>
+            <value name="value">
+              <block type="text" id="S%EEtF_!RIdkatuiT,l7">
+                <field name="value">Male</field>
+              </block>
+            </value>
+            <next>
+              <block type="goto" id="#*]P-%PMbQn{`EB,-n5,">
+                <field name="stateName">patient history</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_example" id="LVA[p-^TmkBtz}Y0lZBX">
+            <field name="responseText">Female</field>
+            <statement name="actions">
+              <block type="variable_set" id="O[1Z0Tb|s{WJZcJJ7?[E">
+                <field name="variable" id="?^#EE91wPs?Za=f7^Mn/" variabletype="GenericValue">patient_gender</field>
+                <value name="value">
+                  <block type="text" id="w$0qIm~^$dW0E6L|od44">
+                    <field name="value">Female</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="goto" id="Gbg{]q_WJvEZAW0fLvH6">
+                    <field name="stateName">patient history</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="define_intent" id="04qq^X+in7+5AaLj1nj^" x="1109" y="-8">
+    <field name="intent_name" id="Z(X(U6fgFiTmOvKklADG" variabletype="IntentCandidate">asthma flare</field>
+    <value name="intent">
+      <block type="intent_simple" id="6`mZ2t)(xV0r~9Gs1hNk">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="){gZ+Cu::NhM/;ts%`Bx">
+            <field name="text">asthma flare</field>
+            <next>
+              <block type="intent_example" id="A;7ma$ZlP#NnWgb2*^~e">
+                <field name="text">asthma</field>
+                <next>
+                  <block type="intent_example" id=",fvqY%XiPDe]w7(!QW]x">
+                    <field name="text">asthma attack</field>
+                    <next>
+                      <block type="intent_example" id="B/qxsMI`w?{?=0%/^m*c">
+                        <field name="text">worsening asthma</field>
+                        <next>
+                          <block type="intent_example" id="6_=Ip9|[%;X+(^HY}P.)">
+                            <field name="text">airways</field>
+                            <next>
+                              <block type="intent_example" id="jyhB!u[X@O(!t28^;XY/">
+                                <field name="text">tight</field>
+                                <next>
+                                  <block type="intent_example" id="pYKlLMXoAnnigF[.m5Wk">
+                                    <field name="text">wheezing</field>
+                                    <next>
+                                      <block type="intent_example" id="%%;2?dQ,{,63n-r9@`|)">
+                                        <field name="text">gasping</field>
+                                        <next>
+                                          <block type="intent_example" id="r;m+~4ZdMM0$;kLT4kb!">
+                                            <field name="text">air</field>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="i~7m(E1ADtXTr~BAvn=3" x="1496" y="-10">
+    <field name="intent_name" id=".[ez.O*Tiq2+ZNc)-G#(" variabletype="IntentCandidate">pain peeing</field>
+    <value name="intent">
+      <block type="intent_simple" id="7?-zGcw5fmDg..-)`CBL">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="QW)I|g{+wUG]CFCUbX3J">
+            <field name="text">peeing</field>
+            <next>
+              <block type="intent_example" id="gK0DGmw[~o/qXwI~pvxF">
+                <field name="text">pain while peeing</field>
+                <next>
+                  <block type="intent_example" id="?x-s#`$C@E@ak^B8tPc8">
+                    <field name="text">pee</field>
+                    <next>
+                      <block type="intent_example" id="(*2cCTUnABVi(1|z/2b4">
+                        <field name="text">cannot pee</field>
+                        <next>
+                          <block type="intent_example" id="*mh2J;q[EVTs$HgM:W^e">
+                            <field name="text">burns when peeing</field>
+                            <next>
+                              <block type="intent_example" id="llV{$+h_}^Q4q?@^D}$*">
+                                <field name="text">piss</field>
+                                <next>
+                                  <block type="intent_example" id="rgY6$/UBr^wo/R;[ar=B">
+                                    <field name="text">pissing</field>
+                                    <next>
+                                      <block type="intent_example" id="-)-]HGBL4]ljL.IXpvvP">
+                                        <field name="text">burning when peeing</field>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="q~}RO[==;[m(wyF,IbVe" x="2117" y="11">
+    <field name="intent_name" id=":Xb6In/Rle;_W,;2cYBP" variabletype="IntentCandidate">burns</field>
+    <value name="intent">
+      <block type="intent_simple" id="RU|^BdM,Vt{iVgTun8f7">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="vHosY!FB%F~c,c}??U/u">
+            <field name="text">burned</field>
+            <next>
+              <block type="intent_example" id="]kS(.7wfhaF(inx6KuhU">
+                <field name="text">burning</field>
+                <next>
+                  <block type="intent_example" id="R{6^z7x%q_LKI)|ZLEQ?">
+                    <field name="text">I burned my</field>
+                    <next>
+                      <block type="intent_example" id="^/zctZ)X5lEy!6wa5uNr">
+                        <field name="text">a burn</field>
+                        <next>
+                          <block type="intent_example" id="KdlZB)2pl:IrpQi?toS7">
+                            <field name="text">burns</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="~A|q]h)r|o(Mb{iCxyX(" x="1800" y="29">
+    <field name="intent_name" id=",{Ug|itt7s8A_J]$9~M:" variabletype="IntentCandidate">ear pain</field>
+    <value name="intent">
+      <block type="intent_simple" id="}w|7!b`=0LxHY2_OkjcT">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="3C+`V2kn6#xyKD(N!h3k">
+            <field name="text">ear</field>
+            <next>
+              <block type="intent_example" id=":sgX%nZ$GkPdI^+@En^I">
+                <field name="text">ears</field>
+                <next>
+                  <block type="intent_example" id="Z,;$Yp];PqZo$*-F@RV$">
+                    <field name="text">pain</field>
+                    <next>
+                      <block type="intent_example" id="v$^pSSkvoh]Z^-2QFf^$">
+                        <field name="text">my ear is</field>
+                        <next>
+                          <block type="intent_example" id="p3ua6eenKKH3T}DGLkh;">
+                            <field name="text">my ears are</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="define_intent" id="nl*6:c-}a`h!(RG{!x=X" x="2464" y="33">
+    <field name="intent_name" id="PWq:h~M+{n_#}MvqzE~P" variabletype="IntentCandidate">none</field>
+    <value name="intent">
+      <block type="intent_simple" id="|#F+x6kx[``e0N]c3Q]8">
+        <statement name="exampleBlocks">
+          <block type="intent_example" id="H*N+Pv2mLgqI8j5W=DF0">
+            <field name="text">none</field>
+            <next>
+              <block type="intent_example" id="vJ*dln*}L{hIwW$^sKcN">
+                <field name="text">nothing major</field>
+                <next>
+                  <block type="intent_example" id="oSHJOQ[.MR7l,@G_]r#l">
+                    <field name="text">i do not have any symptoms</field>
+                    <next>
+                      <block type="intent_example" id="bsXi@pDQaiK|Mn=WWk!j">
+                        <field name="text">I don't have any symptoms</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </value>
+  </block>
+  <block type="state" id="Uz%d/o=vA#O5QJ9R12OF" x="247" y="304">
+    <field name="stateName">patient history</field>
+    <statement name="actions">
+      <block type="say_text" id="B4!qAx%Mby:8NFiR#7S1">
+        <value name="text">
+          <shadow type="text" id="x6:UM:5bT?kc?lTIt$43">
+            <field name="value">I will now take your patient history.</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="ask_text" id="X9df1e-1$i~hnw}q3*25">
+            <value name="text">
+              <shadow type="text" id="a$/gCi;!+S;GC?]3u*Kq">
+                <field name="value">Do you have any chronic diseases?</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_any" id="|z^+BP)B(s`iw0EC)o=G">
+        <statement name="actions">
+          <block type="variable_set" id="}p(,3F(L+nTX0/xggqh=">
+            <field name="variable" id="wA9!sSpMOAk|b/6![`ZS" variabletype="GenericValue">diseases</field>
+            <value name="value">
+              <block type="text_repeat_user" id="P]lu[Rdg1i7[Gp6JAZN?"></block>
+            </value>
+            <next>
+              <block type="goto" id="N(O*_8-N!3=,jLr.ut3?">
+                <field name="stateName">medications</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="ewP~umYNs~#TKvn*2oI|" x="709" y="353">
+    <field name="stateName">symptoms</field>
+    <statement name="actions">
+      <block type="ask_text" id="1,nNw2wFJ~r-Liv/;Gk)">
+        <value name="text">
+          <shadow type="text" id="w|(_X^X;wthDW_wDTRu0">
+            <field name="value">What is your strongest symptom?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="[X{}Lub}%}P|vd%uLNiO">
+        <value name="intent">
+          <block type="intent_variable" id="2]ZV}bU+;P6wm:*8qI0K">
+            <field name="varname" id="x.#w+Twg{1iM/:zFZhJ~" variabletype="IntentCandidate">abdominal pain</field>
+          </block>
+        </value>
+        <statement name="actions">
+          <block type="goto" id="TS`s`.IW{4{]StIZa`F(">
+            <field name="stateName">a.pain</field>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id=",P1dEnQqG5/l+!Y[}tM=">
+            <value name="intent">
+              <block type="intent_variable" id="T]Ysg7f52%srn]dR}p,z">
+                <field name="varname" id="::B_],Pgtjji?`WTS2O3" variabletype="IntentCandidate">headache</field>
+              </block>
+            </value>
+            <statement name="actions">
+              <block type="goto" id="D6*K{$,rTreXaW+oT3=D">
+                <field name="stateName">headache</field>
+              </block>
+            </statement>
+            <next>
+              <block type="onresponse_intent" id="@hVb9@K5}j;!r9jk04E?">
+                <value name="intent">
+                  <block type="intent_variable" id="ESY])O7AW4S*K.{QE7]h">
+                    <field name="varname" id=":Z5Eovxi2(mdprYA|NED" variabletype="IntentCandidate">fever</field>
+                  </block>
+                </value>
+                <statement name="actions">
+                  <block type="goto" id="v23KyQ)]%:a:HWP$psls">
+                    <field name="stateName">fever</field>
+                  </block>
+                </statement>
+                <next>
+                  <block type="onresponse_intent" id="Rl)B`pywV~A2,M?g:l.i">
+                    <value name="intent">
+                      <block type="intent_variable" id="4U:7ei5Y(nT98,dCON;.">
+                        <field name="varname" id="fU14As7N|9MbBOWBkUb9" variabletype="IntentCandidate">dizziness</field>
+                      </block>
+                    </value>
+                    <statement name="actions">
+                      <block type="goto" id="WI!yp_-u0zV)C7%upxvD">
+                        <field name="stateName">dizziness</field>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="onresponse_intent" id="ql^Z^m*CS`)TYQZ:`dT0">
+                        <value name="intent">
+                          <block type="intent_variable" id="OJiGr?beKJzbT490+%7y">
+                            <field name="varname" id="hWY6=xAde[aTsB@4ec7~" variabletype="IntentCandidate">vomiting</field>
+                          </block>
+                        </value>
+                        <statement name="actions">
+                          <block type="goto" id="M}74y$4r,V=qsdN;m_Nh">
+                            <field name="stateName">vomit</field>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="onresponse_intent" id="`X7TPEc^H5.^X{j(pM/6">
+                            <value name="intent">
+                              <block type="intent_variable" id="4*]ih,KXZ%Pl.[ry47dQ">
+                                <field name="varname" id="$oYz;Ssg$HsbnqK8!:nd" variabletype="IntentCandidate">broken bones</field>
+                              </block>
+                            </value>
+                            <statement name="actions">
+                              <block type="goto" id="G?3Txxymx]]LdWRYg-nk">
+                                <field name="stateName">bones</field>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="onresponse_intent" id="^=C[sJ!._LjkVRCH`BI*">
+                                <value name="intent">
+                                  <block type="intent_variable" id="40`FJwLvg)jyI(|ppqhI">
+                                    <field name="varname" id="ECvmVitV+2lb,4BX]LKB" variabletype="IntentCandidate">cuts</field>
+                                  </block>
+                                </value>
+                                <statement name="actions">
+                                  <block type="goto" id="cT%T/j}E~H:)e:x?xEV4">
+                                    <field name="stateName">cuts</field>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="onresponse_intent" id="EOi-ymNYE0#i$Fd-g~Uw">
+                                    <value name="intent">
+                                      <block type="intent_variable" id="`/JnL08DwyMz__xvD`8]">
+                                        <field name="varname" id="emg1.wj8CAz^P#!%#Pou" variabletype="IntentCandidate">sprain</field>
+                                      </block>
+                                    </value>
+                                    <statement name="actions">
+                                      <block type="goto" id="B8]8kSXcXR^AD7XP1xp7">
+                                        <field name="stateName">sprain</field>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="onresponse_intent" id="h0m]2aH%@WI;!c48I_:8">
+                                        <value name="intent">
+                                          <block type="intent_variable" id="}jzEx3*BCo(``T%^5!sG">
+                                            <field name="varname" id="6,sCmQFYKJKFiRx)37Jn" variabletype="IntentCandidate">back pain</field>
+                                          </block>
+                                        </value>
+                                        <statement name="actions">
+                                          <block type="goto" id="!Vb$c3F1VGF#vtABzGO`">
+                                            <field name="stateName">back pain</field>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="onresponse_intent" id="rxCdLx;*O2.j346;7SP2">
+                                            <value name="intent">
+                                              <block type="intent_variable" id="/q+*KTR2:rP%E#)UiE/0">
+                                                <field name="varname" id="q58ADP}VN.P-[;$MzX,?" variabletype="IntentCandidate">head injury</field>
+                                              </block>
+                                            </value>
+                                            <statement name="actions">
+                                              <block type="goto" id="*.V@iG,TlUHh1::A+|dk">
+                                                <field name="stateName">head injury</field>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="onresponse_intent" id="RG%i|E3!;Dj-|w2~VSLE">
+                                                <value name="intent">
+                                                  <block type="intent_variable" id="Qg9F/j-aI_-VdaBlC55c">
+                                                    <field name="varname" id="Z(X(U6fgFiTmOvKklADG" variabletype="IntentCandidate">asthma flare</field>
+                                                  </block>
+                                                </value>
+                                                <statement name="actions">
+                                                  <block type="goto" id="e9wg)UyQ0#X1ai?4X;D3">
+                                                    <field name="stateName">asthma flare</field>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="onresponse_intent" id=":tJ7GHQOF5aH=sZ}tNQg">
+                                                    <value name="intent">
+                                                      <block type="intent_variable" id="DIMEj0AJeDBTC*Z@pj)?">
+                                                        <field name="varname" id=".[ez.O*Tiq2+ZNc)-G#(" variabletype="IntentCandidate">pain peeing</field>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="actions">
+                                                      <block type="goto" id="H%IDg.Z3MRK8f[?NH6Oa">
+                                                        <field name="stateName">pain peeing</field>
+                                                      </block>
+                                                    </statement>
+                                                    <next>
+                                                      <block type="onresponse_intent" id=",Z2!|:#1|7sSVWRXqH3~">
+                                                        <value name="intent">
+                                                          <block type="intent_variable" id="canMcnLeYnF@7qeEj/E3">
+                                                            <field name="varname" id=",{Ug|itt7s8A_J]$9~M:" variabletype="IntentCandidate">ear pain</field>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="actions">
+                                                          <block type="goto" id="{z%9O+!qs-b*CQv;~u;T">
+                                                            <field name="stateName">ear pain</field>
+                                                          </block>
+                                                        </statement>
+                                                        <next>
+                                                          <block type="onresponse_intent" id="Z6L(SKw$X5a1s)`jkHoo">
+                                                            <value name="intent">
+                                                              <block type="intent_variable" id="{l5JooxhwQc5v?8H{L5?">
+                                                                <field name="varname" id=":Xb6In/Rle;_W,;2cYBP" variabletype="IntentCandidate">burns</field>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="actions">
+                                                              <block type="goto" id="cFTQ;_Xnnj6}o/qx9-IT">
+                                                                <field name="stateName">burns</field>
+                                                              </block>
+                                                            </statement>
+                                                            <next>
+                                                              <block type="onresponse_intent" id="U~OFP}AO9B:v-}r4Q{as">
+                                                                <value name="intent">
+                                                                  <block type="intent_variable" id="`f76k|W,f~v`ln^.}_1g">
+                                                                    <field name="varname" id="PWq:h~M+{n_#}MvqzE~P" variabletype="IntentCandidate">none</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="actions">
+                                                                  <block type="goto" id="vG.2xaFEtQj(_Q40V[_N">
+                                                                    <field name="stateName">exit</field>
+                                                                  </block>
+                                                                </statement>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="`9LCls|D{|i*cP,[z2KC" x="1105" y="336">
+    <field name="stateName">bones</field>
+    <statement name="actions">
+      <block type="ask_text" id="@agR_1:RJ{,mFawb^@r:">
+        <value name="text">
+          <shadow type="text" id="ZL`3cV(2s8MGPDzg#D[N">
+            <field name="value">Can you see your bone through your skin or are you actively bleeding?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="Eb$gxy9o:%-ewR{[gVnX">
+        <value name="intent">
+          <block type="intent_yes" id="VUV|HGgQLR]1R7kH.Pj,"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="qk1IlJzP/Qj#i,n~7Qkb">
+            <value name="text">
+              <shadow type="text" id="?Ved{DS#3kL|UbRpCgH$">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="l#1eUb=^Bh%P0;_51~h#">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id=";f06UD=5FHIc)]wZxT)@">
+                    <field name="value">ORANGE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="Bx!9:Xh(QE(UolHpck?h">
+            <value name="intent">
+              <block type="intent_no" id="T*(Yf-+Qpd@3SmA7r`0N"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id=".##G,Q6=2:a5Yc^f@unM">
+                <value name="text">
+                  <shadow type="text" id=".MEj,sPFR:07:S$?{YZ}">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="CkZV@$u{fJmGX6j~|%X8">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="I,:uc+0u9AMo.F/#yw_;">
+                        <field name="value">YELLOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="3/ziLPE7.}EUJ,?lsJ%[" x="1595" y="333">
+    <field name="stateName">cuts</field>
+    <statement name="actions">
+      <block type="ask_text" id="?]IhiU(r}$8#Y-RaSC2c">
+        <value name="text">
+          <shadow type="text" id="R{5vi$8KxTd|82xqqI;M">
+            <field name="value">Is the cut actively bleeding after applying oressure or are ther mulltiple deep cuts?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="dg=f|_!k23SKKVs|1E%W">
+        <value name="intent">
+          <block type="intent_yes" id="mCNU+a(q99FlCd;vu.2Y"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="P5Gq~()+10zJDh:`06=?">
+            <value name="text">
+              <shadow type="text" id="p(K-BkI*BdlTU^ln$@Wz">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="aK{tSZv`CSu]V(S^k@(;">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="]eOCF1G87.fus8F3_fu+">
+                    <field name="value">ORANGE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="L$M6=p{O3MJA)ac2RwQd">
+            <value name="intent">
+              <block type="intent_no" id=":!px(?D%8:Qcgi(v0BTV"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="R*KDQLHmS5~)QPaf54`=">
+                <value name="text">
+                  <shadow type="text" id="hxj{$G^c72/NH,0V`%+)">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="y{LK1gj7/U}9toC$T;$g">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="/Ax$[Sx.#l2j4vps.g#r">
+                        <field name="value">YELLOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="gN3^!:OB/l-dA,;:uLzV" x="2120" y="327">
+    <field name="stateName">sprain</field>
+    <statement name="actions">
+      <block type="ask_text" id="yT|8zu1eu*_}?av@`u{9">
+        <value name="text">
+          <shadow type="text" id="S_`0lG.`xHWn[4*U#cyM">
+            <field name="value">Can you move or use the joint at all?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="~!JGm8}{I:;HM0K,])ay">
+        <value name="intent">
+          <block type="intent_yes" id="UmT22n$pv/~no`E@Dc0X"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="B1;W72bIT9j[zLCx.YIG">
+            <value name="text">
+              <shadow type="text" id="5,u$~ycZwQJkcwG,,o_h">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="S79B(aaRG`GvgOXAVvm,">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="V%}0H0U,|i+9W0%=P=Kl">
+                    <field name="value">YELLOW</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="JC@lg0JPgPfX0NnJ~Ym|">
+            <value name="intent">
+              <block type="intent_no" id="s-2M?CfzBvqI}bnL`=(."></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="#,w4L!1W@EF(a)hS|oTT">
+                <value name="text">
+                  <shadow type="text" id="Fm(dbc^WLK|s]$A9`k=i">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="%31+cLq.vYEAY;J!GAh`">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id=":yBJ9oU5eAv(XNa^3ReX">
+                        <field name="value">GREEN</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="?sOrB|KF:EP~~*y_sEVf" x="2556" y="329">
+    <field name="stateName">back pain</field>
+    <statement name="actions">
+      <block type="ask_text" id="rkxu/RmHvaqO%,,8LAc]">
+        <value name="text">
+          <shadow type="text" id="P]X?uL3F8%d5IlQsuX_f">
+            <field name="value">Does the pain shoot down your leg or do you have any numbness, tingling, or weakness in your legs?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="j!nA=A(#~||l.l]ZSP=(">
+        <value name="intent">
+          <block type="intent_yes" id="}-^h^GhK8Ing9KMkjZ6V"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="dTuh8Cb@=dnTi(=b$;VK">
+            <value name="text">
+              <shadow type="text" id="?YG$y}nj!#hny5mo:FU3">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="P_+L7SA%pC9+?XKZD+[/">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="srA$eMSXhC``7S)5nT;f">
+                    <field name="value">YELLOW</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="mU}YE]l!p~Df/,mDoOzW">
+            <value name="intent">
+              <block type="intent_no" id=",G6G)kPJ93=Prn{Eqj~~"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="VbPOE(dZ-L`[;bE^cx]B">
+                <value name="text">
+                  <shadow type="text" id="xm_O}!fWsVg#L*.Z(hrf">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="KZa8;j[q*I{5z-coN:eh">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="=JEqDn+{4J5-=;Qov|tV">
+                        <field name="value">GREEN</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="p/t)[E0fP%##733TP,g{" x="255" y="593">
+    <field name="stateName">medications</field>
+    <statement name="actions">
+      <block type="ask_text" id="G;bNALNFW!4ltr%v`+c}">
+        <value name="text">
+          <shadow type="text" id="GraTHkii~?=F|=oIap`T">
+            <field name="value">Do you take any medications?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_any" id="Isg|%$IpjB]k]Fvn`#M8">
+        <statement name="actions">
+          <block type="variable_set" id="+nq/EvK`@GHq7|y{ZYVH">
+            <field name="variable" id="n:?Ei[CG7izh4vsL-71h" variabletype="GenericValue">medications</field>
+            <value name="value">
+              <block type="text_repeat_user" id="tuFft6rUuY)$_dJMPAGm"></block>
+            </value>
+            <next>
+              <block type="goto" id="2HThFpNb2L6b]18$]:q,">
+                <field name="stateName">allergies</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="Zb#5zAPvf*uz,*a8LUhc" x="1118" y="684">
+    <field name="stateName">vomit</field>
+    <statement name="actions">
+      <block type="ask_text" id="in;62AYFI9EBqv`E~jL!">
+        <value name="text">
+          <shadow type="text" id=")fv[dI2~}?uGp7Xn%DDl">
+            <field name="value">Have you been vomiting for longer than 6 hours or do you vomit blood? </field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="_A1q$v#CU(CnCQ|5#a]Z">
+        <value name="intent">
+          <block type="intent_yes" id="au}H4m5hBtJ@.@[iBl`B"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="ayHqu2[kI7?8{yA8)e,v">
+            <value name="text">
+              <shadow type="text" id=",CM@NB{S}|R/qhgcPU5u">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="3GBFdk#j|YS3$J~B~:Yr">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id=",R#T,zukn6rD[La):QuH">
+                    <field name="value">RED</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="lzt!usyB#AY#-P!S35=i">
+            <value name="intent">
+              <block type="intent_no" id="{~q5fu`XJMT?U(wjc^/j"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="fh#`U{OSF1N/B?#ihy71">
+                <value name="text">
+                  <shadow type="text" id="Yo@Hd0]:(aWKvGL[IHXe">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="BS;w?n)WWI;G1P{}qx*3">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="s:RwE^cpKPj(floyjU0K">
+                        <field name="value">GREEN</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id=")RLR9_$(u3D{g4I?@ViA" x="1607" y="702">
+    <field name="stateName">head injury</field>
+    <statement name="actions">
+      <block type="ask_text" id="797}dE724*SvPglw?$ua">
+        <value name="text">
+          <shadow type="text" id="rg3vxbw%:T/6s;gI#YmI">
+            <field name="value">Did you lose consciousness at any point or are you experiencing confusion or memory loss?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="n|5BD;WIk6iT)nP7[e5!">
+        <value name="intent">
+          <block type="intent_yes" id="Tay?yI~Y@US|hQh!sFm@"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="J}E/Yf6UZ^Nasl8K;YZM">
+            <value name="text">
+              <shadow type="text" id="KLwO!]j,O@P;lT(lQ~{(">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="GBGIxpAf[is,qf+J@`u$">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="M-vq~cmcH^59a7HVctM]">
+                    <field name="value">ORANGE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="@}UXgcf$jj2%F$Wf1yXY">
+            <value name="intent">
+              <block type="intent_no" id="V%zfh]l9%tA)XXi24p)d"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="~|OnfQ;xa%/S)hhb1efS">
+                <value name="text">
+                  <shadow type="text" id="S3HZzn3)JY=7b;~zqI1v">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id=")q$^u=x61*I,jwW,%vl[">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="nH}=C3x@`p3Y4]^icG8A">
+                        <field name="value">YELLOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="?@+.E_tIS`2D.|67LX]2" x="2117" y="680">
+    <field name="stateName">ear pain</field>
+    <statement name="actions">
+      <block type="ask_text" id="Ni6Kg-}^`:)aSr2:xFA`">
+        <value name="text">
+          <shadow type="text" id="-GzD.{?hA-?t0~bS+IyO">
+            <field name="value">Is there any discharge or fluid coming out of the ear, or is the pain sharp and severe?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="dHi?}{K${AM54Ev:[,lu">
+        <value name="intent">
+          <block type="intent_yes" id="^Yh6yhNuH(sfJj|eIQ?9"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="$-o_O_:CtsaC#@5B]?G)">
+            <value name="text">
+              <shadow type="text" id="Sx_zRG(ViX9nOD2c,(Tj">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="QKzqC0Np#5QER_@([bcK">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="_YXQhV$7JS.XY!,_^!WS">
+                    <field name="value">YELLOW</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="P*JLnu?xrLVku=$$p!iy">
+            <value name="intent">
+              <block type="intent_no" id=")??dP1WMsY/A{hho`ot]"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="3hQ++7y`Q=CKHKfe74pN">
+                <value name="text">
+                  <shadow type="text" id="x;D~q{2CsJ*}%K48XKr,">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="tYZ`^wdq*1R*Hyf}87b$">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="y1/x?0WU|WDIGOza*4~T">
+                        <field name="value">GREEN</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="Lin*Q3YWRYw-btX19c#g" x="2557" y="682">
+    <field name="stateName">pain peeing</field>
+    <statement name="actions">
+      <block type="ask_text" id="`rA[!r@xd][G1E~~(F,T">
+        <value name="text">
+          <shadow type="text" id="c)n$9`gJ_RZ_qKZOQV`F">
+            <field name="value">Is there pain in your lower back or side, particularly around  your kidneys, or are you peeing blood?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="ClPx8@blI9Xvg;g8r}?~">
+        <value name="intent">
+          <block type="intent_yes" id="UZW?yMYJAX_sBTwW?5k4"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="ti{P5M9|1|Y$Arkf(7+6">
+            <value name="text">
+              <shadow type="text" id="TbBg|#LgW1cDej7MG:A0">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="#h`N#}51wpHimOoXZe9g">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="zK=uu%Um}Zi:hK+(6`6f">
+                    <field name="value">ORANGE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="1QMnXh$qNTyz/^!KoI6h">
+            <value name="intent">
+              <block type="intent_no" id="r~C?Oc#2]n.BHc_e(]QP"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="[]~1PS}[cQiK+v],a`;~">
+                <value name="text">
+                  <shadow type="text" id="~*z{U.V~m(YOD4mYm[n$">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="[di%z#9Z{G#O0.Q4@tIq">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="`^Pk396,AN+=]N-7E@wB">
+                        <field name="value">YELLOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="XirY3%nKRL~pQcvl6Oyl" x="246" y="839">
+    <field name="stateName">allergies</field>
+    <statement name="actions">
+      <block type="ask_text" id="L[A8add9MWSK/g85DxsA">
+        <value name="text">
+          <shadow type="text" id="|,`2tHg3B9VOJ1y5g:AC">
+            <field name="value">Do you have any allergies?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_any" id="IM-](lcsUBl51N,Lcsb)">
+        <statement name="actions">
+          <block type="variable_set" id="9K(H5+BtxmzAyQsG/ulB">
+            <field name="variable" id="(e!wTFenVlps}GBZcwMH" variabletype="GenericValue">allergies</field>
+            <value name="value">
+              <block type="text_repeat_user" id="WX))3c1*0-vC@QvYJZ#7"></block>
+            </value>
+            <next>
+              <block type="goto" id="i|j5_|)^7q!Zi(h2B#WL">
+                <field name="stateName">surgery</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="tYUoOMhH|K]!7^G2TUd^" x="1112" y="1031">
+    <field name="stateName">fever</field>
+    <statement name="actions">
+      <block type="ask_text" id="im~9ZDsvr3e:GX54%Uzf">
+        <value name="text">
+          <shadow type="text" id="#|1]C3+x#y_VtxjdJkUf">
+            <field name="value">Do you also have neck stiffness or skin rash?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="KTXdX=T:jnNvxow+xR8!">
+        <value name="intent">
+          <block type="intent_yes" id="k%FnaZgJ^mGLkwD-{48I"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="sT:`+1F|JKyki.7FG=Pv">
+            <value name="text">
+              <shadow type="text" id="z;Nf9RvjBOhk)Ml34+l5">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="x)C3XCdZ%:glz4pTbwWq">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="-79g,H2OW2e6zZ}MC1JV">
+                    <field name="value">ORANGE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="1hH?;ZNy](NNq4E-#!:J">
+            <value name="intent">
+              <block type="intent_no" id="Ewr$p!f-i}|NinZZ9|(["></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="lqVba^H563TMLQ(f76wV">
+                <value name="text">
+                  <shadow type="text" id="l,RSD`ylM3wr^c:*1UX}">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="AiUe3_Vhn!_[=**rregO">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="?nEEb*/TTnw#gd4n7@cu">
+                        <field name="value">YELLOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="%z3^q+UR_SgF,jHJS@S0" x="246" y="1081">
+    <field name="stateName">surgery</field>
+    <statement name="actions">
+      <block type="ask_text" id="kAYu0vq[Dq.SG1@?X0}J">
+        <value name="text">
+          <shadow type="text" id="$=5;dEa1M1w};Ub-e}_b">
+            <field name="value">Have you ever had surgery? If yes, what was the reason?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_any" id="G,rsz/)P}^]g]XLKa;`A">
+        <statement name="actions">
+          <block type="variable_set" id="71=T[Q,.1Wv+9OZ(UeA%">
+            <field name="variable" id="ACG`r1Az4[{oFCCS!KO4" variabletype="GenericValue">surgery</field>
+            <value name="value">
+              <block type="text_repeat_user" id=")-6p-Ilz:INWWvdu8c7C"></block>
+            </value>
+            <next>
+              <block type="goto" id="0mz,w~Hwy]iJ#qOck!=I">
+                <field name="stateName">women questions</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="=I.Y$jf(q![fF/OTW$Xj" x="1624" y="1034">
+    <field name="stateName">dizziness</field>
+    <statement name="actions">
+      <block type="ask_text" id="z=jJr5CBr;h6h|}i~u~h">
+        <value name="text">
+          <shadow type="text" id="F~q(R01KCQhPT7qARSN9">
+            <field name="value">Do you also experience confusion or loss of conscioussness?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="g=^8nTYP@]aQG*^?EoBE">
+        <value name="intent">
+          <block type="intent_yes" id="|!7Jzhr5jkWS`Q%7FJo("></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="f9EhqPGvZCU*F_ATN^e1">
+            <value name="text">
+              <shadow type="text" id="@aH5bV~-}V36P}5-KYq.">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="|BxIu$F[x.=eZ{-eG|56">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="i$JsKvZVlHV(aZ}ERHo1">
+                    <field name="value">RED</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="n{-_7yJ*lJ[p1.Yzfh^$">
+            <value name="intent">
+              <block type="intent_no" id="ER(QPAU*{.+Bp-5?_G[J"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="%ju;z*3|ek/|WzS`9+d7">
+                <value name="text">
+                  <shadow type="text" id="!+FXV_Ss;|O{fNmM)2[L">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="=%[|=hj}]=`|~`vO/^/2">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id=",+ddp3%??U*8X)p/(GZa">
+                        <field name="value">YELLOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="e.q=DQhj#%QJ|[DU*y$g" x="2145" y="1026">
+    <field name="stateName">asthma flare</field>
+    <statement name="actions">
+      <block type="ask_text" id=")p8,L%OvIz@KZL{-6i|3">
+        <value name="text">
+          <shadow type="text" id="lq@`4*|OMQhx^xBzYK/S">
+            <field name="value">Is your inhaler alleviating the symptoms, or are they worsening or not improving after using it?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="$nSQAsaRo)4V,sOXdQzz">
+        <value name="intent">
+          <block type="intent_no" id="6yQ:MHK^LyQ:.z2`yC:d"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id=";2HnN(wk_uiq,i8:L-w5">
+            <value name="text">
+              <shadow type="text" id="pGTRCOot!,Ye0R7pAesu">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="F0n@a@%*uGCoCAMCjWfP">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="5)yLK2}_2u-9+),?cZn#">
+                    <field name="value">YELLOW</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="q1K|negM2?vM8lre^cfm">
+            <value name="intent">
+              <block type="intent_yes" id=".+AwymmE3Y+[vH$/2srF"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="@k_lL^{fcqE|1s?J,ii%">
+                <value name="text">
+                  <shadow type="text" id="!fR3A9?~aMYovFS-IDVg">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="LuNVw+ee5Bc6mWnfQ-e@">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="A-!Uf)-;$T(:15LAW6]}">
+                        <field name="value">GREEN</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="#`.[qO+W_F7@%@q_l*72" x="2566" y="1040">
+    <field name="stateName">burns</field>
+    <statement name="actions">
+      <block type="ask_text" id="bD4B=Al5~8_ESDRB;[0=">
+        <value name="text">
+          <shadow type="text" id="(lUSpwa,K@#Y;4otZ/|5">
+            <field name="value">Is the burned area large, and does the skin look white, brown, or leathery rather than red and blistered?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="8h.h1x}zOFZtw?Imo27P">
+        <value name="intent">
+          <block type="intent_yes" id="QxJ^C[A:|1Yy87;})|LI"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="5u/6iTL$uJ2Amvw|7xbp">
+            <value name="text">
+              <shadow type="text" id="BY*#U*kF:kaq=^G#lRFm">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="pzXlAA!Gc=1|+$2$I(CI">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="U%z8K=X#7AWM6~D(@F_L">
+                    <field name="value">ORANGE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="EB?RLPBPQm~D7eq2fM[g">
+            <value name="intent">
+              <block type="intent_no" id="UV7i7]|Mu^!pgzh7`XGI"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="rJOP=YlX=r~DRuy*P,9_">
+                <value name="text">
+                  <shadow type="text" id="ij+SFJgwBVm}z,+?)_NU">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="=DS%XWBW`sdx3Wx`B]{R">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="#-;],KR~.y?Hh2,hE[/h">
+                        <field name="value">GREEN</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="8;KH@iP3W7Dl]h%)F96(" x="251" y="1329">
+    <field name="stateName">women questions</field>
+    <statement name="actions">
+      <block type="if_then_else" id="kSp0yo{)ZF/#_X:6Ne?I">
+        <value name="cond">
+          <block type="cond_compare" id="(:-AZ*K2#*au3|QWB^/:">
+            <field name="comparison">=</field>
+            <value name="first">
+              <block type="variable_get" id=";/@[|iW{L,*.i7;O#k5~">
+                <field name="varname" id="?^#EE91wPs?Za=f7^Mn/" variabletype="GenericValue">patient_gender</field>
+              </block>
+            </value>
+            <value name="second">
+              <block type="text" id="Qj`ehK{TXE+oZa%k)*gJ">
+                <field name="value">Female</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="actions">
+          <block type="ask_text" id="}|`qtdeA..4nt!(hPa=%">
+            <value name="text">
+              <shadow type="text" id="|zOuJ.9yFRKorA[wP2qU">
+                <field name="value">Are you pregnant or do you take oral contraceptives?</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <statement name="actions2">
+          <block type="variable_set" id="ds6;rQ01/0jOPg2X0Fi^">
+            <field name="variable" id="m9ks!uQbFz4oh@U)NN*`" variabletype="GenericValue">pregnancy/contraceptives</field>
+            <value name="value">
+              <block type="text" id="SK.|?XFEu;U96.J|84r#">
+                <field name="value">not applicable</field>
+              </block>
+            </value>
+            <next>
+              <block type="goto" id="~%re|lMXEEMP;LPsKS1M">
+                <field name="stateName">verification</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_any" id="|2[S{*_REvM3G`5wGOl|">
+        <statement name="actions">
+          <block type="variable_set" id="H=Zn:Zo(#oW/:kUxDgHY">
+            <field name="variable" id="m9ks!uQbFz4oh@U)NN*`" variabletype="GenericValue">pregnancy/contraceptives</field>
+            <value name="value">
+              <block type="text_repeat_user" id="+}LDXl%+tFJJ%`Neu-Wc"></block>
+            </value>
+            <next>
+              <block type="goto" id="zSIXZ3wqSq.Cm:!E4AZx">
+                <field name="stateName">verification</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="#qY[)OUthk!bdbcCjIfB" x="1111" y="1362">
+    <field name="stateName">a.pain</field>
+    <statement name="actions">
+      <block type="ask_text" id="R:aE8iWy@@0FfgeGSN(1">
+        <value name="text">
+          <shadow type="text" id="Ca$^vieNO-5sGsVI|^Jh">
+            <field name="value">Do you also have back pain or vomit blood?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="7;5dTZ4!!mKDzo-E5(Ym">
+        <value name="intent">
+          <block type="intent_yes" id="MY]G0lsJU^)2?3|cotit"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="7$sjc#l%HW0/M%hfk1/i">
+            <value name="text">
+              <shadow type="text" id="izqOJs8={WovWeg;knlz">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="zB:/##u~H~HB:3M,a`Kz">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="O|F,Y?Td1V{2(n)`ZEwT">
+                    <field name="value">ORANGE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="fwt%_)S)Fj!A5e[PP_-e">
+            <value name="intent">
+              <block type="intent_no" id="#K$9~~3Xad9=`u=Lj5;c"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="[SLY%tI[`X:9WRQD#M(F">
+                <value name="text">
+                  <shadow type="text" id="YKi@sCnN@yF]Iz;=JQNa">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="+du_?w@-SiCoM]22:!R}">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="Ouo*KIm}?h43xD*$kIuC">
+                        <field name="value">YELLOW</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="K4Shb2++G2vM}^C_AJW6" x="1627" y="1386">
+    <field name="stateName">headache</field>
+    <statement name="actions">
+      <block type="ask_text" id="3)Rmdpxf+=K!!#I3vDvM">
+        <value name="text">
+          <shadow type="text" id="}x$fxyV|kaQze6x;=[}]">
+            <field name="value">Do you also have numbness or speech or vision impairment?</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <next>
+      <block type="onresponse_intent" id="|^oAn;W`)$dx`R6@t)Z-">
+        <value name="intent">
+          <block type="intent_yes" id="W4DjnK5us%-dc=Fi%cQy"></block>
+        </value>
+        <statement name="actions">
+          <block type="say_text" id="@(Cm]biV_~Mps$Ua2|W^">
+            <value name="text">
+              <shadow type="text" id="O4LM:}u2]?~pCnzBgWt-">
+                <field name="value">I have notified the staff of your condition.</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="variable_set" id="xW/0LU7a/sbnRKSl/Cjs">
+                <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                <value name="value">
+                  <block type="text" id="h:W#X${F=`XiYE}m;9w[">
+                    <field name="value">ORANGE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="onresponse_intent" id="+:?T/fXStbk!L2+jVJ$s">
+            <value name="intent">
+              <block type="intent_no" id="|*MBw38.wBs_4.wsZ*uD"></block>
+            </value>
+            <statement name="actions">
+              <block type="say_text" id="CMMEb~^}^Yenjq#(a}bl">
+                <value name="text">
+                  <shadow type="text" id="Gb8@c*TN%zx3g;ZH[e}R">
+                    <field name="value">I have notified the staff of your condition.</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="variable_set" id="f3_O_uOf]@D/g$h`=;W:">
+                    <field name="variable" id="A1NI6~q^gBYSv6hyvLgl" variabletype="GenericValue">urgency_code</field>
+                    <value name="value">
+                      <block type="text" id="3D`77.Rf)6gdQt%@y}Ji">
+                        <field name="value">GREEN</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="state" id="~{aB6KY+Z8vy}N]2u5$n" x="2556" y="1401">
+    <field name="stateName">exit</field>
+    <statement name="actions">
+      <block type="say_text" id="nuEcL?3yICh]3hTT1)Uo">
+        <value name="text">
+          <shadow type="text" id=";@CF.lq_v(%!}5!L.`N(">
+            <field name="value">Your condition and symptoms are mild. Please visit your GP office. If you have any further questions or concerns, please feel free to talk to the nurses around you. Have a nice day!</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
